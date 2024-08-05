@@ -13,18 +13,7 @@ Resources:
   MyInstance:
     Type: AWS::EC2::Instance
     Properties:
-    ImageId: ami-0c11a84584d4e09dd
+      ImageId: ami-0c11a84584d4e09dd
       InstanceType: t2.micro
       SecurityGroups:
         - !Ref InstanceSecurityGroup
-  MyVolume:
-    Type: AWS::EC2::Volume
-    Properties:
-      Size: 10
-      AvailabilityZone: !GetAtt MyInstance.AvailabilityZone
-  MyVolumeAttachment:
-    Type: AWS::EC2::VolumeAttachment
-    Properties:
-      InstanceId: !Ref MyInstance
-      VolumeId: !Ref MyVolume
-      Device: /dev/sdf
